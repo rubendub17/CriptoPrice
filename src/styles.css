@@ -1,12 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
 
 h1 {
 	text-align: center;
-	text-shadow: 4px 3px red;
+	text-shadow: 4px 3px rgb(169, 5, 21);
 	font-size: 100px !important;
-	padding: 50px 0px;
+	font-family: 'Roboto Mono';
   }
+  
 
+  body {
+	margin: 0;
+	background: linear-gradient(-45deg, #ee7752, #ee528e, #35b2df, #23d5ab);
+	background-size: 500% 500%;
+	animation: gradient 30s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

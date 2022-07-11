@@ -2,7 +2,7 @@
 <mat-drawer-container class="drawer-container">
 	<mat-drawer mode="side" opened>
 
-		<button mat-button (click)="getcoins()">Refresh <i class="fa-light fa-arrows-rotate"></i></button>
+		<button mat-button (click)="getcoins()">Refresh</button>
 		
 		<mat-form-field class="form-field" appearance="fill" >
 			<mat-label>Count</mat-label>
@@ -19,7 +19,7 @@
 		<button mat-button>Refresh</button>
 		
 	</mat-drawer>
-	<mat-drawer-content> 
+	<mat-drawer-content [@listAnimation]="coins.length-5"> 
 
 			<mat-card class="card" *ngFor="let c of coins">
 				<mat-card-title>{{c.rank}} - {{c.name}}</mat-card-title>

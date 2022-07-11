@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { PriceFetchService } from '../price-fetch.service';
 import { Coin } from '../coin';
 
+import { fadeAnimation, listAnimation} from 'src/app/animation'
+import { animation } from '@angular/animations';
+import { async } from 'rxjs/internal/scheduler/async';
+
+
 
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  animations: [fadeAnimation, listAnimation]
 })
 
 export class DashboardComponent implements OnInit {

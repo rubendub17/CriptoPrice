@@ -10,11 +10,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     MatDividerModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
