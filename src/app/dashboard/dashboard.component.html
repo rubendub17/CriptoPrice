@@ -1,0 +1,43 @@
+
+<mat-drawer-container class="drawer-container">
+	<mat-drawer mode="side" opened>
+
+		<button mat-button >Refresh</button>
+		
+		<mat-form-field class="form-field" appearance="fill" onsubmit="update(val)">
+			<mat-label>Count</mat-label>
+			<input matInput type="text" [(ngModel)]="val">
+			<button matSuffix mat-icon-button aria-label="Clear" (click)="val=9">
+			  <mat-icon>close</mat-icon>
+			</button>
+		  </mat-form-field>
+		 
+		<button mat-button>Show</button>
+
+		<button mat-button>Refresh</button>
+		
+		<button mat-button>Refresh</button>
+		
+	</mat-drawer>
+	<mat-drawer-content> 
+		
+			<mat-card class="card" *ngFor="let c of getSome(val)" >
+				<mat-card-title>{{c.rank}} - {{c.name}}</mat-card-title>
+				<mat-card-content>
+					<p>Price: {{c.priceUsd | number:'1.2-2' }}</p>
+
+					<div *ngIf="c.changePercent24Hr > 0; then thenBlock else elseBlock"></div>
+						<ng-template #thenBlock><p class="greenT">24Hchange:  {{c.changePercent24Hr | number:'1.2-2' }}</p></ng-template>
+						<ng-template #elseBlock><p class="redT">24Hchange:  {{c.changePercent24Hr | number:'1.2-2' }}</p></ng-template>
+					
+					<p>supply:  {{c.supply| number:'1.2-2' }}</p>
+					<p>Market Cap:  {{c.marketCap | number:'1.2-2' }}</p>
+				</mat-card-content>
+				
+			</mat-card>
+
+		
+
+		
+	</mat-drawer-content>
+  </mat-drawer-container>

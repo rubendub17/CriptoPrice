@@ -1,0 +1,52 @@
+.card {
+	min-width: 250px;
+	margin: 15px 20px;
+	text-align: center;
+	display: block;
+	float: left;
+  }
+
+  .card:hover{
+	transform: scale(1.1);
+	box-shadow: 7px 7px  black;
+  }
+
+
+  mat-drawer{
+	width: 150px;
+	background-color: rgb(127, 162, 235);
+	color: black;
+	border-right: solid 3px black;
+  }
+
+  mat-drawer-content{
+	background-color: rgb(112, 181, 250);
+	padding: 30px;
+	
+  }
+
+  .mat-button{
+	padding: 10px 0;
+	width: 100%;
+	border-bottom: solid 1px rgba(128, 128, 128, 0.487);
+  }
+
+
+  .drawer-container{
+	border: solid 3px black;
+	border-radius: 10px;
+	max-width: 1200px;	
+	min-height: 500px;
+  }
+
+  .form-field{
+	border-bottom: solid 1px rgba(128, 128, 128, 0.487);
+	width: 100%;
+  }
+
+  .greenT{
+	color: green;
+  }
+  .redT{
+	color: red;
+  }
