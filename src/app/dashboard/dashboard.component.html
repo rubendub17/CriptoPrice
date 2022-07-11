@@ -2,17 +2,17 @@
 <mat-drawer-container class="drawer-container">
 	<mat-drawer mode="side" opened>
 
-		<button mat-button >Refresh</button>
+		<button mat-button (click)="getcoins()">Refresh <i class="fa-light fa-arrows-rotate"></i></button>
 		
-		<mat-form-field class="form-field" appearance="fill" onsubmit="update(val)">
+		<mat-form-field class="form-field" appearance="fill" >
 			<mat-label>Count</mat-label>
-			<input matInput type="text" [(ngModel)]="val">
-			<button matSuffix mat-icon-button aria-label="Clear" (click)="val=9">
+			<input matInput type="text" [(ngModel)]="val" (change)="getcoins()">
+			<button matSuffix mat-icon-button aria-label="Clear" (click)="val=0;this.priceFetch.clearCoins();">
 			  <mat-icon>close</mat-icon>
 			</button>
 		  </mat-form-field>
 		 
-		<button mat-button>Show</button>
+		<button mat-button (click)="this.priceFetch.clearCoins();">Clear</button>
 
 		<button mat-button>Refresh</button>
 		
@@ -20,8 +20,8 @@
 		
 	</mat-drawer>
 	<mat-drawer-content> 
-		
-			<mat-card class="card" *ngFor="let c of getSome(val)" >
+
+			<mat-card class="card" *ngFor="let c of coins">
 				<mat-card-title>{{c.rank}} - {{c.name}}</mat-card-title>
 				<mat-card-content>
 					<p>Price: {{c.priceUsd | number:'1.2-2' }}</p>
@@ -36,7 +36,6 @@
 				
 			</mat-card>
 
-		
 
 		
 	</mat-drawer-content>

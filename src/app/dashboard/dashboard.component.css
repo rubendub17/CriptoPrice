@@ -35,7 +35,7 @@
   .drawer-container{
 	border: solid 3px black;
 	border-radius: 10px;
-	max-width: 1200px;	
+	width: 1200px;	
 	min-height: 500px;
   }
 
@@ -49,4 +49,8 @@
   }
   .redT{
 	color: red;
+  }
+
+  .card{
+	max-width: 280px !important;
   }

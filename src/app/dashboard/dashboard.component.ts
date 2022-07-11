@@ -3,6 +3,7 @@ import { PriceFetchService } from '../price-fetch.service';
 import { Coin } from '../coin';
 
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,24 +13,24 @@ import { Coin } from '../coin';
 export class DashboardComponent implements OnInit {
 
   public val:number = 9;
-  private coins:Coin[] = [];
-  public displayCoins:Coin[] = [];
+
+  public coins:Coin[] = [];
 
 
-
-  constructor(public priceFetch:PriceFetchService) { }
+  constructor(
+    public priceFetch:PriceFetchService
+    ) { }
 
 
   ngOnInit(): void {
-    this.coins = this.priceFetch.getCoins();
+    // relaciona o array ao behaviur subject
+    this.priceFetch.itemsB$.subscribe(items => this.coins = items);
   }
 
-  counter(len:number){
-    return new Array(len+1);
-  }
-
-  getSome(num:number){
-    return this.coins.slice(0,num);
+  getcoins(){
+    // clear the coin search and gets new coins
+    this.priceFetch.clearCoins();
+    this.priceFetch.getCoins(this.val);
   }
 
 
