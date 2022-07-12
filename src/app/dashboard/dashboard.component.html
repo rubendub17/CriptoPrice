@@ -22,16 +22,20 @@
 	<mat-drawer-content [@listAnimation]="coins.length-5"> 
 
 			<mat-card class="card" *ngFor="let c of coins">
-				<mat-card-title>{{c.rank}} - {{c.name}}</mat-card-title>
-				<mat-card-content>
-					<p>Price: {{c.priceUsd | number:'1.2-2' }}</p>
-
+				<mat-card-title>
 					<div *ngIf="c.changePercent24Hr > 0; then thenBlock else elseBlock"></div>
-						<ng-template #thenBlock><p class="greenT">24Hchange:  {{c.changePercent24Hr | number:'1.2-2' }}</p></ng-template>
-						<ng-template #elseBlock><p class="redT">24Hchange:  {{c.changePercent24Hr | number:'1.2-2' }}</p></ng-template>
+						<ng-template #thenBlock><p class="greenT">{{c.rank}} - {{c.name}}</p></ng-template>
+						<ng-template #elseBlock><p class="redT">{{c.rank}} - {{c.name}}</p></ng-template>
+				</mat-card-title>
+				<mat-card-content>
+					<p>Price: {{c.priceUsd | number:'1.2-2' }} $ USD</p>
+
+					<div *ngIf="c.changePercent24Hr > 0; then thenBlock2 else elseBlock2"></div>
+						<ng-template #thenBlock2><p class="greenT">24Hchange:  {{c.changePercent24Hr | number:'1.2-2' }}%</p></ng-template>
+						<ng-template #elseBlock2><p class="redT">24Hchange:  {{c.changePercent24Hr | number:'1.2-2' }}%</p></ng-template>
 					
-					<p>supply:  {{c.supply| number:'1.2-2' }}</p>
-					<p>Market Cap:  {{c.marketCap | number:'1.2-2' }}</p>
+					<p>supply:  {{c.supply| number:'1.2-2' }} BTC</p>
+					<p>Market Cap:  {{c.marketCap | number:'1.2-2' }} $ USD</p>
 				</mat-card-content>
 				
 			</mat-card>
